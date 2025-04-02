@@ -31,6 +31,7 @@ body {
   height: 100%;
   align-items: center;
   justify-content: center;
+  background-color: #F7E4CB;
 }
 
 .spacer {
@@ -61,7 +62,7 @@ h2 {
 .logo {
   width: 5em;
   height: 3em;
-  background: center/contain url('../assets/Travelort_Logo_forTouchPanel.png') no-repeat;
+  background: center/contain url('../assets/TRAVELPORT_LOGO_BLACK_RGB.png') no-repeat;
 }
 
 .time-date {
@@ -85,7 +86,7 @@ button, input {
 }
 
 input {
-  background-color: #F7E4CB;
+  background-color: #F2F2F2;
   border-radius: 24px;
   border: 3px solid black;
 }
