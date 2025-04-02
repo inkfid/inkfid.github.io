@@ -59,11 +59,21 @@ h2 {
   margin: 0;
 }
 
+/* 
 .logo {
   width: 20em;
   height: 6em;
   background: center/contain url('../assets/TRAVELPORT_LOGO_BLACK_RGB.png') no-repeat;
 }
+*/
+ .logo {
+  width: 10em; /* Adjust width */
+  height: auto; /* Keeps aspect ratio */
+  display: block;
+  margin: 0 auto; /* Centers horizontally */
+  background: center/contain url('../assets/TRAVELPORT_LOGO_BLACK_RGB.png') no-repeat;
+}
+   
 
 .time-date {
   text-align: right;
