@@ -2,9 +2,8 @@ let currentSearchNumber = 0;
 
 const webexMsgUrl = 'https://webexapis.com/v1/messages';
 const webexSearchUrl = 'https://webexapis.com/v1/people?displayName=';
-const token = 'YTQyOWY3OTAtNjA0ZC00ZWE4LTgwNmYtZjNjMjg2YzljZjkwNzgwZGFiZGYtOTY1_PF84_895155b7-cc7a-426c-bb66-768bd3be1b8e';
 
-async function get(url, token) {
+async function get(url, token='YTQyOWY3OTAtNjA0ZC00ZWE4LTgwNmYtZjNjMjg2YzljZjkwNzgwZGFiZGYtOTY1_PF84_895155b7-cc7a-426c-bb66-768bd3be1b8e') {
   if (!token) throw(new Error('No webex token specified'));
 
   const options = {
