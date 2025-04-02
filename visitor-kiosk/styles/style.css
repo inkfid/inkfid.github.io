@@ -62,7 +62,7 @@ h2 {
 /* 
 .logo {
   width: 20em;
-  height: 6em;
+  height: 3em;
   background: center/contain url('../assets/TRAVELPORT_LOGO_BLACK_RGB.png') no-repeat;
 }
 */
@@ -80,7 +80,8 @@ h2 {
 }
 
 .time {
-  font-size: 1.5em;
+  /*font-size: 1.5em;*/
+  *font-size: 3em;
 }
 
 input, .found-hosts {
