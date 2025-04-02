@@ -61,7 +61,7 @@ h2 {
 .logo {
   width: 5em;
   height: 3em;
-  background: center/contain url('../assets/TRAVELPORT_SYMBOL_RGB_BLACK.png') no-repeat;
+  background: center/contain url('../assets/Travelort_Logo_forTouchPanel.png') no-repeat;
 }
 
 .time-date {
@@ -85,7 +85,7 @@ button, input {
 }
 
 input {
-  background-color: #f2f2f2;
+  background-color: #F7E4CB;
   border-radius: 24px;
   border: 3px solid black;
 }
@@ -96,7 +96,7 @@ button {
 }
 
 button.primary {
-  background-color: black;
+  background-color: #4E6659;
   color: white;
 }
 
