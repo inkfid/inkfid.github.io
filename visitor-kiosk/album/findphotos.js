@@ -1,5 +1,5 @@
 // add bot token here
-const token = null;
+const token = YTQyOWY3OTAtNjA0ZC00ZWE4LTgwNmYtZjNjMjg2YzljZjkwNzgwZGFiZGYtOTY1_PF84_895155b7-cc7a-426c-bb66-768bd3be1b8e;
 
 const fetch = require('node-fetch');
 const fs = require('fs');
