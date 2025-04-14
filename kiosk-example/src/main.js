@@ -4,7 +4,7 @@ function setup() {
   Alpine.store('model', {
     currentPage: 'home', // 'home', 'service'
     currentLanguage: 'english',
-    dialNumber: 'dominic.fidler@me.com',
+    dialNumber: 'dominic.fidler@travelport.com',
     services: [],
 
     init() {
