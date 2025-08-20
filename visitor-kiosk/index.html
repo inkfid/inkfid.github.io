@@ -26,7 +26,7 @@
   </header>
   <main x-show="page === 'home'">
     <h1>Welcome to Travelport</h1>
-    <div>Please select an action below.</div>
+    <div>Click below to let your host know you have arrived.</div>
     <form class="select-action" @submit.prevent="">
       <div class="action">
         <!---<button @click="checkOut()" class="secondary">Check out</button>
@@ -36,15 +36,15 @@
     </form>
   </main>
   <main x-show="page === 'checkIn'">
-    <h1>Check in</h1>
+    <h1>Notify Host</h1>
     <div>Please enter your name and email below.</div>
     <form class="check-in" @submit.prevent="">
       <div>
         <input placeholder="Full name" id="name" x-model="name" />
       </div>
-      <div>
+      <!---<div>
         <input placeholder="Your email address" x-model="email" @keydown.enter.prevent="if (validForm) next()"/>
-      </div>
+      </div>--->
       <div class="action">
         <button @click="home()" class="secondary">Back</button>
         <button @click="next()" :disabled="!validForm" class="primary">Continue</button>
@@ -107,7 +107,7 @@
     <div class="business-card">
       <img class="photo" :src="photoSrc()" />
       <div class="name" x-text="name"></div>
-      <div class="email" x-text="email"></div>
+    <!---  <div class="email" x-text="email"></div> --->
       <div class="visiting">Visiting:
         <span x-text="currentHost && currentHost.displayName"></span>
       </div>
