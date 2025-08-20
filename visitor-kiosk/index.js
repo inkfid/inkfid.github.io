@@ -69,10 +69,14 @@ const dataModel = {
   },
 
   get validForm() {
+    /*
     const emailPattern = /\w+@\w+/;
     if (this.page === 'checkIn') {
       return this.name.trim().length && this.email.match(emailPattern);
     }
+    */
+    if (this.page === 'checkIn') {
+      return this.name.trim().length > 3;
     else if (this.page === 'checkOut') {
       return this.email.match(emailPattern);
     }
