@@ -26,10 +26,10 @@
   </header>
   <main x-show="page === 'home'">
     <h1>Welcome to Travelport</h1>
-    <div>Click below to let your host know you have arrived.</div>
+    <div>Tap below to let your host know you have arrived.</div>
     <form class="select-action" @submit.prevent="">
       <div class="action">
-        <!---<button @click="checkOut()" class="secondary">Check out</button>
+        <!--- Check Out button <button @click="checkOut()" class="secondary">Check out</button>
           --->
         <button @click="next()" class="primary">Check in</button>
       </div>
@@ -42,9 +42,9 @@
       <div>
         <input placeholder="Full name" id="name" x-model="name" />
       </div>
-      <!---<div>
+      <div>
         <input placeholder="Your email address" x-model="email" @keydown.enter.prevent="if (validForm) next()"/>
-      </div>--->
+      </div>
       <div class="action">
         <button @click="home()" class="secondary">Back</button>
         <button @click="next()" :disabled="!validForm" class="primary">Continue</button>
