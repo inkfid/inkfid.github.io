@@ -68,20 +68,26 @@ const dataModel = {
     location.href = `sip:${number}`;
   },
 
-  get validForm() {
-    const emailPattern = /\w+@\w+/;
-    if (this.page === 'checkIn') {
-      return this.name.trim().length && this.email.match(emailPattern);
+  // Removed below section to try and remove requirement for email address
+ // get validForm() {
+ //   const emailPattern = /\w+@\w+/;
+ //   if (this.page === 'checkIn') {
+ //     return this.name.trim().length && this.email.match(emailPattern);
+ //   }
+ //   else if (this.page === 'checkOut') {
+ //     return this.email.match(emailPattern);
+ //   }
+ //   else if (this.page === 'taxi') {
+ //     return this.phoneNumber.length > 3;
+ //   }
+ //   return true;
+ // },
+// Replaced this the next section
+  get validform(){
+    if (this.page === 'checkIn' {
+      return this.name.time().length; // Only require name
     }
-    else if (this.page === 'checkOut') {
-      return this.email.match(emailPattern);
-    }
-    else if (this.page === 'taxi') {
-      return this.phoneNumber.length > 3;
-    }
-    return true;
-  },
-
+  }
   checkIn() {
     this.page = 'checkIn';
     this.focus('#name');
