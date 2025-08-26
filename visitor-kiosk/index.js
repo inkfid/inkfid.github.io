@@ -3,8 +3,8 @@ const hostMessage = `Hello! A visitor has just arrived in the reception, and reg
 Details:
 
 * Name: **$name**
-// * Email: **$email**
-* Email: **${this.email || 'Not provided'}**
+* Email: **$email**
+//* Email: **${this.email || 'Not provided'}**
 `;
 
 const dataModel = {
