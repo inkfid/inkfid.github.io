@@ -23,7 +23,8 @@ html, body {
 }
 
 body {
-  font-family: 'Karla';
+  /* font-family: 'Karla'; */
+  font-family: Arial, Helvetica, sans-serif;
   padding: 1em;
   font-size: 40px;
   display: flex;
@@ -32,6 +33,15 @@ body {
   align-items: center;
   justify-content: center;
   background-color: #F7E4CB;
+}
+
+.impact-title {
+  font-family: Impact, Charcoal, sans-serif;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  color: var(--main-accent);
 }
 
 .spacer {
