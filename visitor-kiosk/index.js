@@ -1,10 +1,9 @@
-const hostMessage = `Hello! A visitor has just arrived in the reception, and registered you as their host.
+const hostMessage = `Hello! **$name** has just arrived in the reception, and registered you as their host.
 
 Details:
 
 * Name: **$name**
 * Email: **$email**
-//* Email: **${this.email || 'Not provided'}**
 `;
 
 const dataModel = {
