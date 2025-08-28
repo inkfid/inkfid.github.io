@@ -2,13 +2,13 @@
 // send a message to a pre-defined webex space for deliveries
 
 const webexMsgUrlDF = 'https://webexapis.com/v1/messages';
-// this was working - const token = getToken();  // Assuming getToken is defined somewhere all references that are deliveryToken WERE token
-const deliveryToken = "OTA4MDRhNjItMzQ3Yy00ZGIzLWEyNTYtODg1N2RjYmIyNjU1N2RlOTM3ODUtOTRk_PF84_895155b7-cc7a-426c-bb66-768bd3be1b8e";
+const token = getToken();
+// const deliveryToken = "OTA4MDRhNjItMzQ3Yy00ZGIzLWEyNTYtODg1N2RjYmIyNjU1N2RlOTM3ODUtOTRk_PF84_895155b7-cc7a-426c-bb66-768bd3be1b8e";
 const roomId = "Y2lzY29zcGFyazovL3VzL1JPT00vODBlY2Q5YjAtNTk5MC0xMWVhLWFlZGQtOGQxMWJmYzkxNGNm";
 const markdown = "A delivery has arrived at reception.";
 const message = "A parcel has been left at reception.";
 
-function sendDeliveryMessage(deliveryToken, roomId, markdown, message) {
+function sendDeliveryMessage(token, roomId, markdown, message) {
   const formData = new FormData();
   // formData.set('markdown', markdown);
   formData.set('roomId', roomId);
@@ -16,7 +16,7 @@ function sendDeliveryMessage(deliveryToken, roomId, markdown, message) {
 
   const options = {
     headers: {
-      Authorization: 'Bearer ' + deliveryToken,
+      Authorization: 'Bearer ' + token,
     },
     method: 'POST',
     body: formData,
