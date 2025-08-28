@@ -67,7 +67,7 @@ const dataModel = {
   call() {
     const defaultNumber = '124357';
     const number = new URLSearchParams(location.search).get('reception') || defaultNumber;
-    location.href = `sip:${number}`;
+    location.href = `tel:${number}`;
   },
 
   // Removed below section to try and remove requirement for email address
