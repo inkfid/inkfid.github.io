@@ -47,9 +47,9 @@ body {
 }
 
 .notification.success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
+  background-color: #FF5E6F;
+  color: white;
+  border: 1px solid #0A121A;
 }
 
 .close-btn {
