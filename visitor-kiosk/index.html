@@ -29,6 +29,12 @@
   </header>
   <main x-show="page === 'home'">
     <h1 class="impact-title">Welcome to Travelport</h1>
+    <div x-show="deliveryNotice" x-transition
+     class="notification success"
+     x-init="$watch('deliveryNotice', value => { if (value) setTimeout(() => deliveryNotice = false, 7000) })">
+  <span x-text="deliveryNoticeMessage"></span>
+  <button @click="deliveryNotice = false" class="close-btn">×</button>
+</div>
     <div>Tap below to let your host know you have arrived.</div>
     <form class="select-action" @submit.prevent="">
       <div class="action">
