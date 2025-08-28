@@ -1,6 +1,8 @@
 // Added by DF to try and create a new function
 // send a message to a pre-defined webex space for deliveries
-
+funtion sendDeliveryMessage() {
+  alert("Deliverymessagesent!");
+}
 const webexMsgUrlDF = 'https://webexapis.com/v1/messages';
 const token = this.getToken();
 const roomId = "Y2lzY29zcGFyazovL3VzL1JPT00vODBlY2Q5YjAtNTk5MC0xMWVhLWFlZGQtOGQxMWJmYzkxNGNm";
