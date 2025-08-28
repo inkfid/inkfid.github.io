@@ -9,6 +9,8 @@ Details:
 const deliveryMessage = "A delivery has arrived at reception.";
 
 const dataModel = {
+  deliveryNotice: false,
+  deliveryNoticeMessage: '',
 // home > checkIn > findHost > confirmHost > photo > confim > registered | checkOut > checkOutResult
   page: 'home',
   name: '',
@@ -77,7 +79,18 @@ sendDeliveryMessage() {
   const roomId = "Y2lzY29zcGFyazovL3VzL1JPT00vODBlY2Q5YjAtNTk5MC0xMWVhLWFlZGQtOGQxMWJmYzkxNGNm";
   const markdown = "A delivery has arrived at reception.";
   const message = "A delivery has arrived at reception.";
-  sendDeliveryMessage(token, roomId, markdown, message);
+  sendDeliveryMessage(token, roomId, markdown, message)
+sendDeliveryMessage(token, roomId, markdown, message)
+    .then(() => {
+      this.deliveryNoticeMessage = "The team have been notified.";
+      this.deliveryNotice = true;
+      setTimeout(() => { this.deliveryNotice = false; }, 7000);
+    })
+    .catch(() => {
+      this.deliveryNoticeMessage = "Failed to notify the team.";
+      this.deliveryNotice = true;
+      setTimeout(() => { this.deliveryNotice = false; }, 7000);
+    });
 },
 
   // Removed below section to try and remove requirement for email address
