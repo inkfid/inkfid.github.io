@@ -79,7 +79,7 @@ sendDeliveryMessage() {
   const roomId = "Y2lzY29zcGFyazovL3VzL1JPT00vODBlY2Q5YjAtNTk5MC0xMWVhLWFlZGQtOGQxMWJmYzkxNGNm";
   const markdown = "A delivery has arrived at reception.";
   const message = "A delivery has arrived at reception.";
-  sendDeliveryMessage(token, roomId, markdown, message)
+//  sendDeliveryMessage(token, roomId, markdown, message);,
 sendDeliveryMessage(token, roomId, markdown, message)
     .then(() => {
       this.deliveryNoticeMessage = "The team have been notified.";
