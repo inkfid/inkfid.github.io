@@ -1,6 +1,6 @@
 // Added by DF to try and create a new function
 // send a message to a pre-defined webex space for deliveries
-funtion sendDeliveryMessage() {
+function sendDeliveryMessage() {
   alert("Deliverymessagesent!");
 }
 const webexMsgUrlDF = 'https://webexapis.com/v1/messages';
