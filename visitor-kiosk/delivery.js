@@ -25,22 +25,38 @@ function sendDeliveryMessage(token, roomId, markdown, message) {
         throw new Error("Failed to send message");
       }
       return response.json();
-    })
-    .then(data => {
-      console.log("Message sent successfully:", data);
-    })
-    .catch(error => {
-      console.error("Error sending message:", error);
     });
 }
 
-// Register with Alpine
-document.addEventListener('alpine:init', () => {
-  Alpine.data('dataModel', (original = {}) => ({
-    ...original,
-    sendDeliveryMessage() {
-      const token = getToken();
-      sendDeliveryMessage(token, roomId, markdown, message);
+document.addEventListener('DOMContentLoaded', () => {
+  const deliveryButton = document.querySelector('button[class*="secondary"][@click="sendDeliveryMessage()"]');
+  const feedbackDiv = document.createElement('div');
+  feedbackDiv.id = 'delivery-feedback';
+  feedbackDiv.style.marginTop = '10px';
+  feedbackDiv.style.color = 'green';
+  feedbackDiv.style.fontWeight = 'bold';
+  deliveryButton?.parentNode?.appendChild(feedbackDiv);
+
+  window.sendDeliveryMessage = function () {
+    const token = getToken?.();
+    if (!token) {
+      feedbackDiv.textContent = 'No token found.';
+      feedbackDiv.style.color = 'red';
+      return;
     }
-  }));
-});
+
+    feedbackDiv.textContent = 'Sending delivery message...';
+    feedbackDiv.style.color = 'black';
+
+    sendDeliveryMessage(token, roomId, markdown, message)
+      .then(data => {
+        feedbackDiv.textContent = 'Delivery message sent successfully!';
+        feedbackDiv.style.color = 'green';
+      })
+      .catch(error => {
+        feedbackDiv.textContent = 'Failed to send delivery message.';
+        feedbackDiv.style.color = 'red';
+        console.error(error);
+      });
+  };
+
