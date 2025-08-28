@@ -5,7 +5,7 @@ const webexMsgUrlDF = 'https://webexapis.com/v1/messages';
 const token = getToken();  // Assuming getToken is defined somewhere
 const roomId = "Y2lzY29zcGFyazovL3VzL1JPT00vODBlY2Q5YjAtNTk5MC0xMWVhLWFlZGQtOGQxMWJmYzkxNGNm";
 const markdown = "A delivery has arrived at reception.";
-const message = "A delivery has arrived at reception.";
+const message = "A parcel has been left at reception.";
 
 function sendDeliveryMessage(token, roomId, markdown, message) {
   const formData = new FormData();
