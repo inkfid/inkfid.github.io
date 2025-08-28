@@ -9,7 +9,7 @@ const message = "A parcel has been left at reception.";
 
 function sendDeliveryMessage(token, roomId, markdown, message) {
   const formData = new FormData();
-  formData.set('markdown', markdown);
+  // formData.set('markdown', markdown);
   formData.set('roomId', roomId);
   formData.set('text', message);
 
