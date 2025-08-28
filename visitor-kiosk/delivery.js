@@ -36,5 +36,5 @@ function sendDeliveryMessage(token, roomId, markdown, message) {
     });
 }
 
-// Call the function
-sendDeliveryMessage(token, roomId, markdown, message);
+// Call the function - the sends the message on page load!
+// sendDeliveryMessage(token, roomId, markdown, message);
