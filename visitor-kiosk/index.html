@@ -42,13 +42,13 @@
           --->
         <button @click="next()" class="primary">Notify Host</button>
  <!---       <button @click="sendDeliveryMessage()" class="secondary">Delivery</button> --->
-        <button @click="deliveryNotify()" class="secondary">Delivery - New</button>
+        <button @click="deliveryNotify()" class="secondary">Delivery</button>
       </div>
     </form>
 <!---  We can add mini buttons for additional functions --->
-    <div class="mini-apps">
+    <!--- <div class="mini-apps">
       <button class="call" @click="call()">Call Support</button>
-    </div>
+    </div> --->
   </main>
   <main x-show="page === 'checkIn'">
     <h1>Check in</h1>
@@ -229,7 +229,7 @@
     <button @click="notifyRecipient()" class="primary">Confirm</button>
   </div>
 </main>
-<main x-show="page === 'deliveryConfirmed'" x-init="setTimeout(() => home(), 3000)">
+<main x-show="page === 'deliveryConfirmed'" x-init="setTimeout(() => home(), 4000)">
   <h1>Delivery Confirmed</h1>
   <p>
     <strong><span x-text="selectedRecipient && selectedRecipient.displayName"></span></strong>
