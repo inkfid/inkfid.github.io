@@ -76,8 +76,8 @@ const dataModel = {
 sendDeliveryMessage() {
   const token = this.getToken();
   const roomId = "Y2lzY29zcGFyazovL3VzL1JPT00vODBlY2Q5YjAtNTk5MC0xMWVhLWFlZGQtOGQxMWJmYzkxNGNm";
-  const markdown = "A delivery has arrived at reception.";
-  const message = "A delivery has arrived at reception.";
+  const markdown = "A delivery has arrived at reception. - This message is markdown in index.js";
+  const message = "A delivery has arrived at reception. - this message is message in index.js";
 //  sendDeliveryMessage(token, roomId, markdown, message);,
 sendDeliveryMessage(token, roomId, markdown, message)
     .then(() => {
@@ -137,7 +137,8 @@ sendDeliveryMessage(token, roomId, markdown, message)
     this.page = 'registered';
     const msg = hostMessage
       .replace('$name', this.name.trim())
-      .replace('$email', this.email.trim());
+      .replace('$email', this.email.trim())
+      .replace('$hostName', thiscurrentHost.displayName);
     if (!this.currentHost) {
       return;
     }
