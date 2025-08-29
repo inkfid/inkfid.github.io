@@ -155,6 +155,8 @@ sendDeliveryMessage(token, roomId, markdown, message)
         console.warn(e);
         alert('We were not able to send a message to the host at this time.');
       });
+    // Clear the photo from memory
+    this.photo = null;
    },
 
   selectHost(host) {
@@ -183,12 +185,13 @@ sendDeliveryMessage(token, roomId, markdown, message)
     else if (page === 'findHost') {
       this.confirmHost();
     }
-   // else if (page === 'confirmHost') {
-   //   this.showPhotoPage();
-   // }
     else if (page === 'confirmHost') {
-      this.showConfirmation();
+      this.showPhotoPage();
     }
+   // Use this if you want to bypass photos
+   // else if (page === 'confirmHost') {
+   //   this.showConfirmation();
+   // }
     else if (page === 'photo') {
       this.showConfirmation();
     }
