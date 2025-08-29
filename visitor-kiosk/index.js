@@ -138,7 +138,7 @@ sendDeliveryMessage(token, roomId, markdown, message)
     const msg = hostMessage
       .replace('$name', this.name.trim())
       .replace('$email', this.email.trim())
-      .replace('$hostName', thiscurrentHost.displayName);
+      .replace('$hostName', this.currentHost.displayName);
     if (!this.currentHost) {
       return;
     }
