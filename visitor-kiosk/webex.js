@@ -53,28 +53,7 @@ function mockResult(keyword) {
   ];
 }
 
-// async function searchPerson(keyword, token, callback) {
-//  if (!keyword) return;
-//  if (!token) {
-//    callback(mockResult(keyword));
-//    return;
-//  }
-
-//  currentSearchNumber++;
-//  const id = currentSearchNumber; // avoid closure
-//  const url = webexSearchUrl + keyword;
-//  const result = await get(url, token);
-
-//  // a newer search has been requested, discard this one
-//  if (id < currentSearchNumber) {
-//    return;
-//  }
-
-//  callback(result);
-//}
-
-// Trying to limit search results to a sepcific location
-async function searchPerson(keyword, token, callback) {
+ async function searchPerson(keyword, token, callback) {
   if (!keyword) return;
   if (!token) {
     callback(mockResult(keyword));
@@ -83,8 +62,7 @@ async function searchPerson(keyword, token, callback) {
 
   currentSearchNumber++;
   const id = currentSearchNumber; // avoid closure
-  const locationID = '6c3c60d9-f595-42dd-8fba-96c2d6811cc0';
-  const url = '${webexSearchUrl}${encodeURIComponent(keyword) }&locationId=${locationId}'; + keyword;
+  const url = webexSearchUrl + keyword;
   const result = await get(url, token);
 
   // a newer search has been requested, discard this one
