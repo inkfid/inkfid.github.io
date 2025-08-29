@@ -42,7 +42,7 @@
           --->
         <button @click="next()" class="primary">Notify Host</button>
  <!---       <button @click="sendDeliveryMessage()" class="secondary">Delivery</button> --->
-        <button @click="deliveryNotify()" class="secondary">Delivery</button>
+        <button @click="deliveryNotify()" class="secondary">Delivery - New</button>
       </div>
     </form>
 <!---  We can add mini buttons for additional functions --->
@@ -197,7 +197,8 @@
   </main>
 
   
-main x-show="page === 'deliveryNotify'">
+<!--- A new delivery method to individuals --->
+<main x-show="page === 'deliveryNotify'">
   <h1>Courier Delivery</h1>
   <div>Please enter the name of the recipient.</div>
   <form class="check-in" @submit.prevent="">
@@ -211,6 +212,13 @@ main x-show="page === 'deliveryNotify'">
           <div class="avatar" :style="getAvatar(host)"></div>
           <div class="name" x-text="host && host.displayName"></div>
         </div>
+      </template>
+    </div>
+    <div class="action">
+      <button @click="home()" class="secondary">Back</button>
+    </div>
+  </form>
+</main>
 
   <main x-show="page === 'map'">
     <h1>Area map</h1>
