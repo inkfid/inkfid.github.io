@@ -183,8 +183,11 @@ sendDeliveryMessage(token, roomId, markdown, message)
     else if (page === 'findHost') {
       this.confirmHost();
     }
+   // else if (page === 'confirmHost') {
+   //   this.showPhotoPage();
+   // }
     else if (page === 'confirmHost') {
-      this.showPhotoPage();
+      this.showConfirmation();
     }
     else if (page === 'photo') {
       this.showConfirmation();
