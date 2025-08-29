@@ -27,6 +27,7 @@ const dataModel = {
   phoneNumber: '',
   taxiNumber: '',
   selectedRecipient: null,
+  countdown: 3,
   mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d37964.479957946394!2d-121.95893677399364!3d37.41713987799405!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fc911562d481f%3A0xd3d896b473be003!2sCisco%20Systems%20Building%2012!5e0!3m2!1sen!2sno!4v1674211511880!5m2!1sen!2sno',
 
   init() {
@@ -67,6 +68,7 @@ const dataModel = {
     this.name = '';
     this.email = '';
     this.currentHost = null;
+    this.selectedRecipient = null;
     this.foundHosts = [];
     this.searchStatus = '';
     this.photo = null;
@@ -144,8 +146,8 @@ notifyRecipient() {
     .then(() => {
       this.deliveryNoticeMessage = "Recipient notified.";
       this.deliveryNotice = true;
-      setTimeout(() => { this.deliveryNotice = false; this.home();
-                       }, 7000);
+      this.page = 'deliveryConfirmed'; // Show confirmation page
+      this.reset(); //Clear fields
     })
     .catch(() => {
       this.deliveryNoticeMessage = "Failed to notify recipient.";
