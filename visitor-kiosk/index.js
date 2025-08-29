@@ -101,12 +101,13 @@ sendDeliveryMessage(token, roomId, markdown, message)
 },
 
 // A new method to send delivery notifications to individuals instead of a space seen above
-deliveryNotification() {
+
+deliveryNotify() {
   this.page = 'deliveryNotify';
-  this.hostSearch = "";
+  this.hostSearch = '';
   this.foundHosts = [];
   this.searchStatus = '';
-}
+},
 
 searchRecipient() {
   const word = this.hostSearch.trim();
@@ -121,10 +122,9 @@ searchRecipient() {
     this.foundHosts = [];
     this.searchStatus = '';
   }
-}
+},
 
-
-endDeliveryToRecipient(recipient) {
+sendDeliveryToRecipient(recipient) {
   const token = this.getToken();
   const email = recipient.emails[0];
   const msg = "A delivery has arrived for you at reception.";
