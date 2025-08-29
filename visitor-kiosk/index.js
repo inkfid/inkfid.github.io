@@ -6,7 +6,7 @@ Details:
 * Email: **$email**
 `;
 
-const deliveryMessage = "A delivery has arrived at reception.";
+const deliveryMessage = "A delivery has arrived at reception. - This message is set in index.js";
 
 const dataModel = {
   deliveryNotice: false,
