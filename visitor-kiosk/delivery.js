@@ -5,8 +5,8 @@ const webexMsgUrlDF = 'https://webexapis.com/v1/messages';
 const token = getToken();
 // const deliveryToken = "OTA4MDRhNjItMzQ3Yy00ZGIzLWEyNTYtODg1N2RjYmIyNjU1N2RlOTM3ODUtOTRk_PF84_895155b7-cc7a-426c-bb66-768bd3be1b8e";
 const roomId = "Y2lzY29zcGFyazovL3VzL1JPT00vODBlY2Q5YjAtNTk5MC0xMWVhLWFlZGQtOGQxMWJmYzkxNGNm";
-const markdown = "A delivery has arrived at reception.";
-const message = "A parcel has been left at reception.";
+const markdown = "A parcel has been left at reception.";
+// const message = "A parcel has been left at reception.";
 
 function sendDeliveryMessage(token, roomId, markdown, message) {
   const formData = new FormData();
