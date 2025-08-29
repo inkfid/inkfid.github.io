@@ -229,7 +229,16 @@
     <button @click="home()" class="secondary">Back</button>
   </div>
 </main>
-<main x-show="page === 'deliveryConfirmed'" x-init="setTimeout(() => home(), 3000)">
+<main x-show="page === 'deliveryConfirmed'" x-init="
+  countdown = 3;
+  const timer = setInterval(() => {
+    countdown--;
+    if (countdown === 0) {
+      clearInterval(timer);
+      home();
+    }
+  }, 1000);
+">
   <h1>Delivery Confirmed</h1>
   <p>
     <strong><span x-text="selectedRecipient && selectedRecipient.displayName"></span></strong>
