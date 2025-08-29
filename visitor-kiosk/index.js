@@ -54,6 +54,14 @@ const dataModel = {
     this.reset();
   },
 
+  // function added to format name to capitalised First letters
+  formatName(name) {
+    return name
+    .split(' ')
+    .map(part => part.charAt (0).toUpperCase() + part.slice(1).toLowerCase())
+    .join(' ');
+  },
+  
   reset() {
     this.name = '';
     this.email = '';
@@ -180,6 +188,7 @@ sendDeliveryMessage(token, roomId, markdown, message)
       this.checkIn();
     }
     else if (page === 'checkIn') {
+      this.name = this.formatName(this.name); //added this line to format entered name
       this.findHost();
     }
     else if (page === 'findHost') {
