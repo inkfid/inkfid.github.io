@@ -130,7 +130,10 @@ confirmRecipient() {
   
 sendDeliveryToRecipient(recipient) {
   this.selectedRecipient = recipient; // Store for confirmation
-  this.confirmRecipient(); // Navigate to confirmation page
+  setTimeout(() => {
+    this.page = 'confirmRecipient';
+  },0);
+//  this.confirmRecipient(); // Navigate to confirmation page
 },
 
 notifyRecipient() {  
