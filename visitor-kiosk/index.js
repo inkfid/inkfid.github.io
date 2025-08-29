@@ -141,7 +141,7 @@ sendDeliveryToRecipient(recipient) {
 notifyRecipient() {  
   const token = this.getToken();
   const email = this.selectedRecipient.emails[0];
-  const msg = "A parcel has arrived for you at reception.";
+  const msg = "📦 A parcel has arrived for you at reception. 📦";
   sendMessage(token, email, msg)
     .then(() => {
       this.deliveryNoticeMessage = "Recipient notified.";
