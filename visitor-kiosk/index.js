@@ -100,7 +100,47 @@ sendDeliveryMessage(token, roomId, markdown, message)
     });
 },
 
-  // Removed below section to try and remove requirement for email address
+// A new method to send delivery notifications to individuals instead of a space seen above
+deliveryNotification() {
+  this.page = 'deliveryNotify';
+  this.hostSearch = "";
+  this.foundHosts = [];
+  this.searchStatus = '';
+}
+
+searchRecipient() {
+  const word = this.hostSearch.trim();
+  const token = this.getToken();
+  if (word.length > 2) {
+    this.searchStatus = 'Searching...';
+    searchPerson(word, token, list => {
+      this.foundHosts = list;
+      this.searchStatus = 'Found: ' + list.length;
+    });
+  } else {
+    this.foundHosts = [];
+    this.searchStatus = '';
+  }
+}
+
+
+endDeliveryToRecipient(recipient) {
+  const token = this.getToken();
+  const email = recipient.emails[0];
+  const msg = "A delivery has arrived for you at reception.";
+  sendMessage(token, email, msg)
+    .then(() => {
+      this.deliveryNoticeMessage = "Recipient notified.";
+      this.deliveryNotice = true;
+      setTimeout(() => { this.deliveryNotice = false; }, 7000);
+    })
+    .catch(() => {
+      this.deliveryNoticeMessage = "Failed to notify recipient.";
+      this.deliveryNotice = true;
+      setTimeout(() => { this.deliveryNotice = false; }, 7000);
+    });
+}
+
  get validForm() {
    const emailPattern = /\w+@\w+/;
    if (this.page === 'checkIn') {
