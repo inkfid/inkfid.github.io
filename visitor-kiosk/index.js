@@ -97,7 +97,7 @@ sendDeliveryMessage(token, roomId, markdown, message)
  get validForm() {
    const emailPattern = /\w+@\w+/;
    if (this.page === 'checkIn') {
-     return this.name.trim().length && this.email.match(emailPattern);
+     return this.name.trim().length >= 2; // This requires a valid email --> && this.email.match(emailPattern);
    }
    else if (this.page === 'checkOut') {
      return this.email.match(emailPattern);
