@@ -45,9 +45,10 @@
         <button @click="sendDeliveryMessage()" class="secondary">Delivery</button>
       </div>
     </form>
+<!---  We can add mini buttons for additional functions
     <div class="mini-apps">
       <button class="call" @click="call()">Call Support</button>
-    </div>
+    </div> --->
   </main>
   <main x-show="page === 'checkIn'">
     <h1>Check in</h1>
@@ -56,7 +57,8 @@
       <div>
         <input placeholder="Full name" id="name" x-model="name" @keydown.enter.prevent="if (validForm) next()"/>
       </div>
-     <!--- <div>
+     <!--- this section required email to be entered
+      <div>
      <input placeholder="Your email address" x-model="email" @keydown.enter.prevent="if (validForm) next()"/>
       </div> --->
       <div class="action">
