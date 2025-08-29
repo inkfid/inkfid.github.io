@@ -147,7 +147,7 @@ notifyRecipient() {
       this.deliveryNoticeMessage = "Recipient notified.";
       this.deliveryNotice = true;
       this.page = 'deliveryConfirmed'; // Show confirmation page
-      this.reset(); //Clear fields
+      // This seems to remove the name from confirmation page | this.reset(); //Clear fields
     })
     .catch(() => {
       this.deliveryNoticeMessage = "Failed to notify recipient.";
