@@ -45,10 +45,10 @@
         <button @click="sendDeliveryMessage()" class="secondary">Delivery</button>
       </div>
     </form>
-<!---  We can add mini buttons for additional functions
+<!---  We can add mini buttons for additional functions --->
     <div class="mini-apps">
       <button class="call" @click="call()">Call Support</button>
-    </div> --->
+    </div>
   </main>
   <main x-show="page === 'checkIn'">
     <h1>Check in</h1>
@@ -115,7 +115,7 @@
       <br/>
       <button @click="next()" class="link">Skip photo</button>
     </div>
-    <audio src="assets/shutter.mp3" id="shutter-sound"></audio>
+    <!--- <audio src="assets/shutter.mp3" id="shutter-sound"></audio> --->
   </main>
   <main x-show="page === 'confirm'">
     <h1>Confirm details</h1>
