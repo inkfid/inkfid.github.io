@@ -1,9 +1,8 @@
-const hostMessage = `Hello! **$name** has just arrived in the reception, and registered you as their host.
+const hostMessage = `Hello, **$hostName**!
 
-Details:
+Your guest **$name** has just arrived in the reception.
 
-* Name: **$name**
-* Email: **$email**
+Please come and greet them when you are ready. 😊
 `;
 
 const deliveryMessage = "A delivery has arrived at reception. - This message is set in index.js";
