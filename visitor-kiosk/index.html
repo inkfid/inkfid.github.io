@@ -51,14 +51,14 @@
   </main>
   <main x-show="page === 'checkIn'">
     <h1>Check in</h1>
-    <div>Please enter your name and email below.</div>
+    <div>Please enter your name below.</div>
     <form class="check-in" @submit.prevent="">
       <div>
-        <input placeholder="Full name" id="name" x-model="name" />
+        <input placeholder="Full name" id="name" x-model="name" @keydown.enter.prevent="if (validForm) next()"/>
       </div>
-      <div>
+     <!--- <div>
      <input placeholder="Your email address" x-model="email" @keydown.enter.prevent="if (validForm) next()"/>
-      </div>
+      </div> --->
       <div class="action">
         <button @click="home()" class="secondary">Back</button>
         <button @click="next()" :disabled="!validForm" class="primary">Continue</button>
