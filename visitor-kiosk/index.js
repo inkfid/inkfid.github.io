@@ -148,6 +148,10 @@ notifyRecipient() {
       this.deliveryNotice = true;
       this.page = 'deliveryConfirmed'; // Show confirmation page
       // This seems to remove the name from confirmation page | this.reset(); //Clear fields
+      // Delay clearing selectedRecipient until after confirmation is shown
+      setTimeout(() => {
+        this.reset(); //This will clear selectedRecipient
+      },3000);
     })
     .catch(() => {
       this.deliveryNoticeMessage = "Failed to notify recipient.";
