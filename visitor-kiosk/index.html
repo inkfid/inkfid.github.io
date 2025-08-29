@@ -40,9 +40,9 @@
       <div class="action">
         <!--- Check Out button <button @click="checkOut()" class="secondary">Check out</button>
           --->
-        <!--- <button @click="sendWebexMessage()" class="secondary">Deliveries</button> --->
         <button @click="next()" class="primary">Notify Host</button>
-        <button @click="sendDeliveryMessage()" class="secondary">Delivery</button>
+ <!---       <button @click="sendDeliveryMessage()" class="secondary">Delivery</button> --->
+        <button @click="deliveryNotify()" class="secondary">Delivery</button>
       </div>
     </form>
 <!---  We can add mini buttons for additional functions --->
@@ -195,6 +195,23 @@
       <button @click="home()" :disabled="!validForm" class="primary">Continue</button>
     </div>
   </main>
+
+  
+main x-show="page === 'deliveryNotify'">
+  <h1>Courier Delivery</h1>
+  <div>Please enter the name of the recipient.</div>
+  <form class="check-in" @submit.prevent="">
+    <div>
+      <input placeholder="Recipient name" x-model="hostSearch" @input="searchRecipient()" />
+    </div>
+    <div class="help" x-text="searchStatus"></div>
+    <div class="found-hosts" x-show="foundHosts.length">
+      <template x-for="host in foundHosts">
+        <div class="host" @click="sendDeliveryToRecipient(host)">
+          <div class="avatar" :style="getAvatar(host)"></div>
+          <div class="name" x-text="host && host.displayName"></div>
+        </div>
+
   <main x-show="page === 'map'">
     <h1>Area map</h1>
     <iframe
