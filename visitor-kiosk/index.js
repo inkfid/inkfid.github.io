@@ -198,21 +198,21 @@ notifyRecipient() {
 
   register() {
     this.page = 'registered';
+    if (!this.currentHost) {
+      return;
+    }
     const firstName = this.currentHost.displayName.split(" ")[0];
     const msg = hostMessage
       .replace('$name', this.name.trim())
       .replace('$email', this.email.trim())
       .replace('$hostFirstName', firstName);
-    if (!this.currentHost) {
-      return;
-    }
-
+    
     const email = this.currentHost.emails[0];
     const token = this.getToken();
-
     if (!token) {
       return;
     }
+  
     sendMessage(token, email, msg, this.photo)
       .catch(e => {
         console.warn(e);
