@@ -147,7 +147,7 @@ notifyRecipient() {
       this.deliveryNoticeMessage = "Recipient notified.";
       this.deliveryNotice = true;
       this.page = 'deliveryConfirmed'; // Show confirmation page
-      // hide this to see if errors disappear | this.reset(); //Clear fields
+      this.reset(); //Clear fields
     })
     .catch(() => {
       this.deliveryNoticeMessage = "Failed to notify recipient.";
