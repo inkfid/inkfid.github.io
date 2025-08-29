@@ -123,15 +123,25 @@ searchRecipient() {
   }
 },
 
+confirmRecipient() {
+  this.page = 'confirmRecipient';
+},
+  
 sendDeliveryToRecipient(recipient) {
+  this.selectedRecipient = recipient; // Store for confirmation
+  this.confirmRecipient(); // Navigate to confirmation page
+},
+
+notifyRecipient() {  
   const token = this.getToken();
-  const email = recipient.emails[0];
-  const msg = "A delivery has arrived for you at reception.";
+  const email = this.selectedRecipient.emails[0];
+  const msg = "A parcel has arrived for you at reception.";
   sendMessage(token, email, msg)
     .then(() => {
       this.deliveryNoticeMessage = "Recipient notified.";
       this.deliveryNotice = true;
-      setTimeout(() => { this.deliveryNotice = false; }, 7000);
+      setTimeout(() => { this.deliveryNotice = false; this.home();
+                       }, 7000);
     })
     .catch(() => {
       this.deliveryNoticeMessage = "Failed to notify recipient.";
