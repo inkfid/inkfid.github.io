@@ -1,4 +1,4 @@
-const hostMessage = `Hello, **$hostName**!
+const hostMessage = `Hello, **$hostFirstName**!
 
 Your guest **$name** has just arrived in the reception.
 
@@ -135,10 +135,11 @@ sendDeliveryMessage(token, roomId, markdown, message)
 
   register() {
     this.page = 'registered';
+    const firstName = this.currentHost.displayName.split(" ")[0];
     const msg = hostMessage
       .replace('$name', this.name.trim())
       .replace('$email', this.email.trim())
-      .replace('$hostName', this.currentHost.displayName);
+      .replace('$hostFirstName', firstName);
     if (!this.currentHost) {
       return;
     }
