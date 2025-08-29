@@ -219,6 +219,14 @@
     </div>
   </form>
 </main>
+  
+<div v-if="page === 'confirmRecipient'">
+  <p>Confirm delivery notification for:</p>
+  <p><strong>{{ selectedRecipient.displayName }}</strong></p>
+  <p>{{ selectedRecipient.emails[0] }}</p>
+  <button @click="notifyRecipient()">Confirm</button>
+</div>
+
 
   <main x-show="page === 'map'">
     <h1>Area map</h1>
