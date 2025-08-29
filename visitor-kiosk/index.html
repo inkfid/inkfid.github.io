@@ -222,7 +222,7 @@
 <main x-show="page === 'confirmRecipient'">
   <h1>Confirmation</h1>
   <p>Please confirm delivery for:</p>
-  <p><strong x-text="selectedRecipient.displayName"></strong></p>
+  <p><strong x-text="selectedRecipient && selectedRecipient.displayName"></strong></p>
   <!--- <p x-text="selectedRecipient.emails[0]"></p> --><!--- Hide email address for privacy reasons --->
   <div class="action">
     <button @click="notifyRecipient()" class="primary">Confirm</button>
