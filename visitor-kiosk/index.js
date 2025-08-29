@@ -67,7 +67,7 @@ const dataModel = {
   },
   
   call() {
-    const defaultNumber = '124357';
+    const defaultNumber = '25521830437@travelport-beta.webex.com';
     const number = new URLSearchParams(location.search).get('reception') || defaultNumber;
     location.href = `tel:${number}`;
   },
