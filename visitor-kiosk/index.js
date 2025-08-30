@@ -1,4 +1,4 @@
-const hostMessage = `📢 ###You have a visitor 📢
+const hostMessage = `###📢 You have a visitor 📢
 
 Hello, **$hostFirstName**!
 
@@ -10,7 +10,7 @@ Please come and greet them when you are ready. 😊
 Guest WIFI name: TPGUEST_
 `;
 
-const parcelMessage = `📦 ###You have a delivery 📦
+const parcelMessage = `###📦 You have a delivery 📦
 
 Hello.  A parcel has been left for you in reception.  
 Please come and collect it at your earliest convenience. 
