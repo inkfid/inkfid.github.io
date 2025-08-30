@@ -1,8 +1,11 @@
-const hostMessage = `Hello, **$hostFirstName**!
+const hostMessage = `📢 Hello, **$hostFirstName**!
 
-Your guest **$name** has just arrived in the reception.
+Your guest **$name** has just arrived in reception.
 
 Please come and greet them when you are ready. 😊
+
+🛜 _If your guest needs WIFI, you can [create a login and password for them here](https://sponsor.travelport.com/).
+Guest WIFI name: TPGUEST_
 `;
 
 const deliveryMessage = "A delivery has arrived at reception. - This message is set in index.js";
