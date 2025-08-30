@@ -1,4 +1,6 @@
-const hostMessage = `📢 Hello, **$hostFirstName**!
+const hostMessage = `📢 ###You have a visitor 📢
+
+Hello, **$hostFirstName**!
 
 Your guest **$name** has just arrived in reception.
 
@@ -6,6 +8,12 @@ Please come and greet them when you are ready. 😊
 
 🛜 _If your guest needs WIFI, you can [create a login and password for them here](https://sponsor.travelport.com/).
 Guest WIFI name: TPGUEST_
+`;
+
+const parcelMessage = `📦 ###You have a delivery 📦
+
+Hello.  A parcel has been left for you in reception.  
+Please come and collect it at your earliest convenience. 
 `;
 
 const deliveryMessage = "A delivery has arrived at reception. - This message is set in index.js";
@@ -145,7 +153,7 @@ notifyRecipient() {
   const token = this.getToken();
   const email = this.selectedRecipient.emails[0];
   const msg = "📦 A parcel has arrived for you at reception. 📦";
-  sendMessage(token, email, msg)
+  sendMessage(token, email, parcelMessage)
     .then(() => {
       this.deliveryNoticeMessage = "Recipient notified.";
       this.deliveryNotice = true;
