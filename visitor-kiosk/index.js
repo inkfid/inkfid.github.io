@@ -18,6 +18,10 @@ Please come and collect it at your earliest convenience.
 
 const deliveryMessage = "A delivery has arrived at reception. - This message is set in index.js";
 
+//Load cards
+import { sendCardMessage } from './utils/sendCardMessage.js';
+import { loadCardTemplate } from './utils/loadCardTemplate.js';
+
 //Adding helper function to use adaptive cards - Sep-01-2025
 async function loadCardTemplate(path, replacements) {
   const response = await fetch(path);
