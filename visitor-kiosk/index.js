@@ -35,7 +35,9 @@ async function loadCardTemplate(path, replacements) {
 }
 // End of new section
 
-const dataModel = {
+//const dataModel = {
+const dataModel() {
+  return {
   deliveryNotice: false,
   deliveryNoticeMessage: '',
 // home > checkIn > findHost > confirmHost > photo > confim > registered | checkOut > checkOutResult
@@ -505,7 +507,7 @@ async register() {
     console.log('created', url);
     return url;
   }
-
+  };
 };
 
 
