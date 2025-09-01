@@ -296,17 +296,17 @@ async register() {
     });
 
   this.photo = null;
-}
+},
 // End of new section
   
-    sendMessage(token, email, msg, this.photo)
-      .catch(e => {
-        console.warn(e);
-        alert('We were not able to send a message to the host at this time.');
-      });
-    // Clear the photo from memory
-    this.photo = null;
-   },
+//    sendMessage(token, email, msg, this.photo)
+//      .catch(e => {
+//        console.warn(e);
+//        alert('We were not able to send a message to the host at this time.');
+//      });
+//    // Clear the photo from memory
+//    this.photo = null;
+//   },
 
   selectHost(host) {
     this.currentHost = host;
