@@ -211,7 +211,7 @@ async notifyRecipient() {
       this.deliveryNotice = true;
       setTimeout(() => { this.deliveryNotice = false; }, 7000);
     });
-}
+},
 // End of new section
   
  get validForm() {
