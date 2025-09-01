@@ -18,6 +18,19 @@ Please come and collect it at your earliest convenience.
 
 const deliveryMessage = "A delivery has arrived at reception. - This message is set in index.js";
 
+//Adding helper function to use adaptive cards - Sep-01-2025
+async function loadCardTemplate(path, replacements) {
+  const response = await fetch(path);
+  const card = await response.json();
+
+  const cardString = JSON.stringify(card);
+  const replaced = Object.entries(replacements).reduce((str, [key, value]) =>
+    str.replaceAll(`$${key}`, value), cardString);
+
+  return JSON.parse(replaced);
+}
+// End of new section
+
 const dataModel = {
   deliveryNotice: false,
   deliveryNoticeMessage: '',
@@ -149,28 +162,54 @@ sendDeliveryToRecipient(recipient) {
 //  this.confirmRecipient(); // Navigate to confirmation page
 },
 
-notifyRecipient() {  
+// Original delivery code - replace is card code breaks
+//notifyRecipient() {  
+//  const token = this.getToken();
+//  const email = this.selectedRecipient.emails[0];
+//  const msg = "📦 A parcel has arrived for you at reception. 📦";
+//  sendMessage(token, email, parcelMessage)
+//    .then(() => {
+//      this.deliveryNoticeMessage = "Recipient notified.";
+//      this.deliveryNotice = true;
+//      this.page = 'deliveryConfirmed'; // Show confirmation page
+//      // This seems to remove the name from confirmation page | this.reset(); //Clear fields
+//      // Delay clearing selectedRecipient (in seconds) until after confirmation is shown
+//      setTimeout(() => {
+//        this.reset(); //This will clear selectedRecipient
+//      },7000);
+//    })
+//    .catch(() => {
+//      this.deliveryNoticeMessage = "Failed to notify recipient.";
+//      this.deliveryNotice = true;
+//      setTimeout(() => { this.deliveryNotice = false; }, 7000);
+//    });
+//},
+
+// New delivery card - Sep-01-2025
+async notifyRecipient() {
   const token = this.getToken();
   const email = this.selectedRecipient.emails[0];
-  const msg = "📦 A parcel has arrived for you at reception. 📦";
-  sendMessage(token, email, parcelMessage)
+
+  const card = await loadCardTemplate('/cards/deliveryCard_branded.json', {
+    recipientName: this.selectedRecipient.displayName,
+    time: this.time
+  });
+
+  sendCardMessage(token, email, card)
     .then(() => {
       this.deliveryNoticeMessage = "Recipient notified.";
       this.deliveryNotice = true;
-      this.page = 'deliveryConfirmed'; // Show confirmation page
-      // This seems to remove the name from confirmation page | this.reset(); //Clear fields
-      // Delay clearing selectedRecipient (in seconds) until after confirmation is shown
-      setTimeout(() => {
-        this.reset(); //This will clear selectedRecipient
-      },7000);
+      this.page = 'deliveryConfirmed';
+      setTimeout(() => this.reset(), 7000);
     })
     .catch(() => {
       this.deliveryNoticeMessage = "Failed to notify recipient.";
       this.deliveryNotice = true;
       setTimeout(() => { this.deliveryNotice = false; }, 7000);
     });
-},
-
+}
+// End of new section
+  
  get validForm() {
    const emailPattern = /\w+@\w+/;
    if (this.page === 'checkIn') {
@@ -211,22 +250,50 @@ notifyRecipient() {
     this.focus('#host');
   },
 
-  register() {
-    this.page = 'registered';
-    if (!this.currentHost) {
-      return;
-    }
-    const firstName = this.currentHost.displayName.split(" ")[0];
-    const msg = hostMessage
-      .replace('$name', this.name.trim())
-      .replace('$email', this.email.trim())
-      .replace('$hostFirstName', firstName);
+  // Original Register - send message model - replace if card code breaks
+ // register() {
+ //   this.page = 'registered';
+ //   if (!this.currentHost) {
+ //     return;
+ //   }
+ //   const firstName = this.currentHost.displayName.split(" ")[0];
+ //   const msg = hostMessage
+ //     .replace('$name', this.name.trim())
+ //     .replace('$email', this.email.trim())
+ //     .replace('$hostFirstName', firstName);
     
-    const email = this.currentHost.emails[0];
-    const token = this.getToken();
-    if (!token) {
-      return;
-    }
+ //   const email = this.currentHost.emails[0];
+ //   const token = this.getToken();
+ //   if (!token) {
+ //     return;
+ //   }
+
+// New code to send vistior info as an adaptive card - Sep-01-2025
+async register() {
+  this.page = 'registered';
+  if (!this.currentHost) return;
+
+  const token = this.getToken();
+  const email = this.currentHost.emails[0];
+  const firstName = this.currentHost.displayName.split(" ")[0];
+  const photoUrl = this.photo ? this.photoSrc() : "https://via.placeholder.com/150";
+
+  const card = await loadCardTemplate('/cards/visitorCard_branded.json', {
+    name: this.name.trim(),
+    hostFirstName: firstName,
+    time: this.time,
+    photoUrl: photoUrl
+  });
+
+  sendCardMessage(token, email, card)
+    .catch(e => {
+      console.warn(e);
+      alert('We were not able to send a card to the host at this time.');
+    });
+
+  this.photo = null;
+}
+// End of new section
   
     sendMessage(token, email, msg, this.photo)
       .catch(e => {
