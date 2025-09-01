@@ -3,29 +3,6 @@ let currentSearchNumber = 0;
 const webexMsgUrl = 'https://webexapis.com/v1/messages';
 const webexSearchUrl = 'https://webexapis.com/v1/people?displayName=';
 
-// New section to support adaptive card - Sep-01-2025
-export async function sendCardMessage(token, toPersonEmail, cardJson) {
-  const body = {
-    toPersonEmail,
-    attachments: [
-      {
-        contentType: "application/vnd.microsoft.card.adaptive",
-        content: cardJson
-      }
-    ]
-  };
-
-  return fetch(webexMsgUrl, {
-    method: 'POST',
-    headers: {
-      Authorization: 'Bearer ' + token,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
-  });
-}
-// End of new section
-
 async function get(url, token) {
   if (!token) throw(new Error('No webex token specified'));
 
