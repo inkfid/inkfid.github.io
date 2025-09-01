@@ -1,0 +1,44 @@
+{
+  "type": "AdaptiveCard",
+  "version": "1.4",
+  "body": [
+    {
+      "type": "Container",
+      "style": "default",
+      "items": [
+        {
+          "type": "TextBlock",
+          "text": "\ud83d\udce6 Delivery Notification",
+          "weight": "Bolder",
+          "size": "Large",
+          "color": "Accent"
+        },
+        {
+          "type": "FactSet",
+          "facts": [
+            {
+              "title": "Recipient:",
+              "value": "$recipientName"
+            },
+            {
+              "title": "Time:",
+              "value": "$time"
+            }
+          ]
+        },
+        {
+          "type": "TextBlock",
+          "text": "A parcel has arrived for you at reception.",
+          "wrap": true
+        }
+      ]
+    }
+  ],
+  "actions": [
+    {
+      "type": "Action.OpenUrl",
+      "title": "Call Reception",
+      "url": "tel:+441234567890"
+    }
+  ]
+}
