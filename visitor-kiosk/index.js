@@ -19,8 +19,8 @@ Please come and collect it at your earliest convenience.
 const deliveryMessage = "A delivery has arrived at reception. - This message is set in index.js";
 
 //Load cards
-import { sendCardMessage } from './cards/sendCardMessage.js';
-import { loadCardTemplate } from './cards/loadCardTemplate.js';
+//import { sendCardMessage } from './cards/sendCardMessage.js';
+//import { loadCardTemplate } from './cards/loadCardTemplate.js';
 
 //Adding helper function to use adaptive cards - Sep-01-2025
 async function loadCardTemplate(path, replacements) {
